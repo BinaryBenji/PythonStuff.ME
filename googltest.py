@@ -13,7 +13,6 @@ def findme(i, s, lst):
         i = i + 1
     return False;
 
-
 if (findme(i, s, lst)):
     print ("OK")
 else :
